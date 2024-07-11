@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perfil de Usuario</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script>
+      function enviarFormulario() {
+        var nombre = document.getElementById("nombre").value.trim();
+        var email = document.getElementById("email").value.trim();
+        var mensaje = document.getElementById("mensaje").value.trim();
+
+        if (nombre === "" || email === "" || mensaje === "") {
+          alert("Por favor completa todos los campos.");
+          return false;
+        }
+
+        var mensajeEnviado = document.getElementById("mensaje-enviado");
+        mensajeEnviado.textContent = "¡El mensaje se envió correctamente!";
+        mensajeEnviado.style.display = "block";
+
+        document.getElementById("formulario-contacto").reset();
+
+        return false;
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <div class="profile">
+        <img src="/img/profile-pick.jpg" alt="Foto de perfil" />
+        <h1>Daniel Cuello</h1>
+      </div>
+    </header>
+
+    <main>
+      <section class="about">
+        <h2>Sobre mí</h2>
+        <p>
+          Soy un entusiasta desarrollador frontend con una pasión desbordante
+          por la creación de experiencias web excepcionales. Con más de
+          <strong>2 años de experiencia</strong> en el desarrollo de
+          aplicaciones web modernas, me especializo en utilizar tecnologías como
+          <strong>React</strong>, <strong>Next.js</strong> y
+          <strong>CSS</strong> para construir interfaces intuitivas y
+          funcionales.
+        </p>
+
+        <p>
+          Mi enfoque se centra en la usabilidad, el diseño responsive y la
+          optimización del rendimiento. Disfruto explorando nuevas herramientas
+          y técnicas que mejoran la eficiencia del desarrollo y la calidad del
+          producto final. Además, tengo experiencia en integración de APIs,
+          manejo de datos dinámicos y seguimiento de las mejores prácticas de
+          <strong>SEO</strong> y <strong>accesibilidad</strong>.
+        </p>
+      </section>
+
+      <section class="interests">
+        <h2>Intereses</h2>
+        <ul>
+          <li>Desarrollo de aplicaciones web</li>
+          <li>
+            Tecnologías frontend como <strong>React</strong> y
+            <strong>Next.js</strong>
+          </li>
+          <li>Diseño de interfaces de usuario</li>
+          <li>Integración de APIs</li>
+          <li>Exploración de nuevas herramientas y frameworks</li>
+        </ul>
+      </section>
+
+      <section class="contact">
+        <h2>Contacto</h2>
+        <form
+          id="formulario-contacto"
+          action="#"
+          method="POST"
+          onsubmit="return enviarFormulario()"
+        >
+          <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+          </div>
+          <button type="submit">Enviar</button>
+        </form>
+        <p
+          id="mensaje-enviado"
+          style="display: none; color: green; margin-top: 1rem"
+        ></p>
+      </section>
+    </main>
+  </body>
+</html>
